@@ -24,7 +24,9 @@ try{
             
            
 
+    }else{
+        allert("Errore! Verifica che i dati siano inseriti correttamente");
     }
-}catch (errore){
-
+}catch (err){
+    allert("Errore di connessione");
 }
