@@ -1,5 +1,6 @@
 const username = document.getElementById("username");   //l'input per l'username deve avere l'id "username"
 const password = document.getElementById("password");   //l'input per la password deve avere l'id "password"
+const checkbox = document.getElementById("checkbox")    //la chekbox per salvare i dati nel local storeage deve avere come id "checkbox"
 const submit = document.getElementById("submit");       //il pulsante submit deve avere l'id submit
 
 try{
@@ -17,7 +18,7 @@ try{
     if (data.success) {
             showMessage(data.message, 'success');
             
-            // Salva token/sessione (opzionale)
+            // Salva token/sessione 
             if (data.username) {
                 localStorage.setItem('username', data.username);
             }
