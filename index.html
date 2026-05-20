@@ -14,7 +14,7 @@
 </head>
   <body>
 
-    <!-- NAV -->
+    
     <nav class="nav">
       <div class="nav__logo">
         <span class="nav__logo-mark">F</span>
@@ -28,7 +28,7 @@
       <a href="#pricing" class="btn btn--outline nav__cta">Inizia ora</a>
     </nav>
 
-    <!-- HERO -->
+   
     <section class="hero">
       <div class="hero__media">
         <img
@@ -65,13 +65,13 @@
       </div>
     </section>
 
-    <!-- ABOUT STRIP -->
+    
     <section class="about" id="about">
       <div class="about__inner">
         <div class="about__text">
           <span class="label">La nostra filosofia</span>
           <h2 class="about__title">Dove la forza<br />incontra la natura</h2>
-          <p>Ispirati dalla Green Theory, progettiamo ogni spazio e ogni programma per restituirti energia, equilibrio e risultati concreti. Materiali naturali, luce, aria e metodi scientifici: questo è Falianz Theory.</p>
+          <p>progettiamo ogni spazio e ogni programma per restituirti energia, equilibrio e risultati concreti. Materiali naturali, luce, aria e metodi scientifici: questo è Falianz Theory.</p>
         </div>
         <div class="about__pillars">
           <div class="pillar">
@@ -93,7 +93,7 @@
       </div>
     </section>
 
-    <!-- PRICING -->
+    
     <section class="pricing" id="pricing">
       <div class="pricing__header">
         <span class="label">I nostri piani</span>
@@ -103,7 +103,7 @@
 
       <div class="cards">
 
-        <!-- MENSILE -->
+        
         <div class="card">
           <div class="card__badge card__badge--neutral">Flessibile</div>
           <div class="card__period">Mensile</div>
@@ -124,7 +124,7 @@
           <a href="#contact" class="btn btn--outline card__btn">Abbonati ora</a>
         </div>
 
-        <!-- 6 MESI (FEATURED) -->
+       
         <div class="card card--featured">
           <div class="card__badge card__badge--green">Più scelto</div>
           <div class="card__period">6 Mesi</div>
@@ -147,7 +147,7 @@
           <div class="card__glow"></div>
         </div>
 
-        <!-- ANNUALE -->
+        
         <div class="card">
           <div class="card__badge card__badge--gold">Massimo risparmio</div>
           <div class="card__period">Annuale</div>
@@ -174,7 +174,6 @@
       <p class="pricing__note">Tutti i prezzi sono IVA inclusa &bull; Nessun costo nascosto &bull; Cancellazione semplice</p>
     </section>
 
-    <!-- GALLERY STRIP -->
     <section class="gallery">
       <div class="gallery__item">
         <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sala pesi" />
@@ -194,7 +193,7 @@
       </div>
     </section>
 
-    <!-- CTA BAND -->
+   
     <section class="cta-band" id="contact">
       <div class="cta-band__inner">
         <h2 class="cta-band__title">Pronto a cambiare<br /><span class="text-accent">la tua vita?</span></h2>
@@ -206,7 +205,7 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
+
     <footer class="footer">
       <div class="footer__top">
         <div class="footer__brand">
@@ -214,7 +213,7 @@
             <span class="nav__logo-mark">F</span>
             <span class="nav__logo-text">FALIANZ<em>THEORY</em></span>
           </div>
-          <p>Via della Natura 12, Milano<br />Aperto 6:00 &mdash; 23:00 ogni giorno</p>
+          <p>Via della Natura 67, Milano<br />Aperto 6:00 am &mdash; 1:00 am ogni giorno</p>
         </div>
         <div class="footer__links">
           <div class="footer__col">
@@ -234,18 +233,18 @@
       </div>
       <div class="footer__bottom">
         <p>&copy; <span id="year">2026</span> Falianz Theory. Tutti i diritti riservati.</p>
-        <p>Ispirato alla Green Theory</p>
+        
       </div>
     </footer>
 
     <script>
-      // Tutto il JS ora sta qui: smooth scroll per ancore interne e aggiornamento anno
+   
       (function () {
-        // Aggiorna l'anno nel footer
+        
         var yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        // Smooth scrolling per link interni che iniziano con '#'
+       
         document.addEventListener('click', function (ev) {
           var a = ev.target.closest && ev.target.closest('a[href^="#"]');
           if (!a) return;
@@ -255,7 +254,7 @@
           if (target) {
             ev.preventDefault();
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Aggiorna la barra degli indirizzi senza ricaricare
+            
             try { history.replaceState(null, '', href); } catch (e) { /* noop */ }
           }
         });
