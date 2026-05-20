@@ -1,11 +1,266 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falianz Theory</title>
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Falianz Theory — Allena il tuo corpo, libera la mente</title>
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
 </head>
-<body>
-    
-</body>
+  <body>
+
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav__logo">
+        <span class="nav__logo-mark">F</span>
+        <span class="nav__logo-text">FALIANZ<em>THEORY</em></span>
+      </div>
+      <ul class="nav__links">
+        <li><a href="#about">Chi siamo</a></li>
+        <li><a href="#pricing">Abbonamenti</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+      <a href="#pricing" class="btn btn--outline nav__cta">Inizia ora</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__media">
+        <img
+          src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Palestra Falianz Theory"
+          class="hero__img"
+        />
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">Benvenuto in</p>
+        <h1 class="hero__title">FALIANZ<br /><span class="hero__title--accent">THEORY</span></h1>
+        <p class="hero__sub">Non soltanto una palestra.<br />Un ecosistema di performance e benessere.</p>
+        <div class="hero__actions">
+          <a href="#pricing" class="btn btn--primary">Scegli il tuo piano</a>
+          <a href="#about" class="btn btn--ghost">Scopri di più</a>
+        </div>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num">12+</span>
+          <span class="stat__label">Anni di esperienza</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">3.400</span>
+          <span class="stat__label">Membri attivi</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">60+</span>
+          <span class="stat__label">Corsi settimanali</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT STRIP -->
+    <section class="about" id="about">
+      <div class="about__inner">
+        <div class="about__text">
+          <span class="label">La nostra filosofia</span>
+          <h2 class="about__title">Dove la forza<br />incontra la natura</h2>
+          <p>Ispirati dalla Green Theory, progettiamo ogni spazio e ogni programma per restituirti energia, equilibrio e risultati concreti. Materiali naturali, luce, aria e metodi scientifici: questo è Falianz Theory.</p>
+        </div>
+        <div class="about__pillars">
+          <div class="pillar">
+            <div class="pillar__icon">&#9675;</div>
+            <h3>Ambiente Green</h3>
+            <p>Spazi bio-climatici progettati per massimizzare le performance e il recupero.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar__icon">&#9651;</div>
+            <h3>Coaching Expert</h3>
+            <p>Trainer certificati con piani personalizzati su misura per i tuoi obiettivi.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar__icon">&#9670;</div>
+            <h3>Comunità Forte</h3>
+            <p>Entra in un network di atleti e appassionati che si motivano ogni giorno.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="pricing__header">
+        <span class="label">I nostri piani</span>
+        <h2 class="pricing__title">Scegli il tuo<br /><span class="text-accent">abbonamento</span></h2>
+        <p class="pricing__sub">Tutti i piani includono accesso illimitato alle attrezzature, alle classi e all'app Falianz.</p>
+      </div>
+
+      <div class="cards">
+
+        <!-- MENSILE -->
+        <div class="card">
+          <div class="card__badge card__badge--neutral">Flessibile</div>
+          <div class="card__period">Mensile</div>
+          <div class="card__price">
+            <span class="card__currency">€</span>
+            <span class="card__amount">49</span>
+            <span class="card__freq">/mese</span>
+          </div>
+          <p class="card__desc">Perfetto per chi vuole iniziare senza impegni a lungo termine.</p>
+          <ul class="card__features">
+            <li><span class="check">&#10003;</span> Accesso illimitato alla palestra</li>
+            <li><span class="check">&#10003;</span> Tutte le classi collettive</li>
+            <li><span class="check">&#10003;</span> App Falianz inclusa</li>
+            <li><span class="check">&#10003;</span> Armadietto personale</li>
+            <li class="muted"><span class="cross">&#10005;</span> Sessione PT inclusa</li>
+            <li class="muted"><span class="cross">&#10005;</span> Programma nutrizionale</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline card__btn">Abbonati ora</a>
+        </div>
+
+        <!-- 6 MESI (FEATURED) -->
+        <div class="card card--featured">
+          <div class="card__badge card__badge--green">Più scelto</div>
+          <div class="card__period">6 Mesi</div>
+          <div class="card__price">
+            <span class="card__currency">€</span>
+            <span class="card__amount">39</span>
+            <span class="card__freq">/mese</span>
+          </div>
+          <p class="card__saving">Risparmi €60 rispetto al mensile</p>
+          <p class="card__desc">Il compromesso ideale tra risparmio e flessibilità.</p>
+          <ul class="card__features">
+            <li><span class="check">&#10003;</span> Accesso illimitato alla palestra</li>
+            <li><span class="check">&#10003;</span> Tutte le classi collettive</li>
+            <li><span class="check">&#10003;</span> App Falianz inclusa</li>
+            <li><span class="check">&#10003;</span> Armadietto personale</li>
+            <li><span class="check">&#10003;</span> 1 sessione PT al mese</li>
+            <li class="muted"><span class="cross">&#10005;</span> Programma nutrizionale</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary card__btn">Abbonati ora</a>
+          <div class="card__glow"></div>
+        </div>
+
+        <!-- ANNUALE -->
+        <div class="card">
+          <div class="card__badge card__badge--gold">Massimo risparmio</div>
+          <div class="card__period">Annuale</div>
+          <div class="card__price">
+            <span class="card__currency">€</span>
+            <span class="card__amount">29</span>
+            <span class="card__freq">/mese</span>
+          </div>
+          <p class="card__saving">Risparmi €240 rispetto al mensile</p>
+          <p class="card__desc">Per chi è serio riguardo ai propri obiettivi. Il piano completo.</p>
+          <ul class="card__features">
+            <li><span class="check">&#10003;</span> Accesso illimitato alla palestra</li>
+            <li><span class="check">&#10003;</span> Tutte le classi collettive</li>
+            <li><span class="check">&#10003;</span> App Falianz inclusa</li>
+            <li><span class="check">&#10003;</span> Armadietto personale</li>
+            <li><span class="check">&#10003;</span> 2 sessioni PT al mese</li>
+            <li><span class="check">&#10003;</span> Programma nutrizionale</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline card__btn">Abbonati ora</a>
+        </div>
+
+      </div>
+
+      <p class="pricing__note">Tutti i prezzi sono IVA inclusa &bull; Nessun costo nascosto &bull; Cancellazione semplice</p>
+    </section>
+
+    <!-- GALLERY STRIP -->
+    <section class="gallery">
+      <div class="gallery__item">
+        <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sala pesi" />
+        <div class="gallery__caption">Sala Pesi</div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.pexels.com/photos/3076509/pexels-photo-3076509.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Yoga" />
+        <div class="gallery__caption">Yoga &amp; Mindfulness</div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.pexels.com/photos/2827392/pexels-photo-2827392.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cardio" />
+        <div class="gallery__caption">Cardio Zone</div>
+      </div>
+      <div class="gallery__item">
+        <img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Functional" />
+        <div class="gallery__caption">Functional Training</div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band" id="contact">
+      <div class="cta-band__inner">
+        <h2 class="cta-band__title">Pronto a cambiare<br /><span class="text-accent">la tua vita?</span></h2>
+        <p>Vieni a trovarci o chiamaci per una prova gratuita di 7 giorni.</p>
+        <div class="cta-band__actions">
+          <a href="tel:+390000000000" class="btn btn--primary">Chiama ora</a>
+          <a href="mailto:info@falianztheory.it" class="btn btn--outline">Scrivici</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="nav__logo-mark">F</span>
+            <span class="nav__logo-text">FALIANZ<em>THEORY</em></span>
+          </div>
+          <p>Via della Natura 12, Milano<br />Aperto 6:00 &mdash; 23:00 ogni giorno</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Esplora</h4>
+            <a href="#about">Chi siamo</a>
+            <a href="#pricing">Abbonamenti</a>
+            <a href="#">Classi</a>
+            <a href="#">Personal Trainer</a>
+          </div>
+          <div class="footer__col">
+            <h4>Legale</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Termini di servizio</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year">2026</span> Falianz Theory. Tutti i diritti riservati.</p>
+        <p>Ispirato alla Green Theory</p>
+      </div>
+    </footer>
+
+    <script>
+      // Tutto il JS ora sta qui: smooth scroll per ancore interne e aggiornamento anno
+      (function () {
+        // Aggiorna l'anno nel footer
+        var yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // Smooth scrolling per link interni che iniziano con '#'
+        document.addEventListener('click', function (ev) {
+          var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+          if (!a) return;
+          var href = a.getAttribute('href');
+          if (!href || href === '#') return;
+          var target = document.querySelector(href);
+          if (target) {
+            ev.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Aggiorna la barra degli indirizzi senza ricaricare
+            try { history.replaceState(null, '', href); } catch (e) { /* noop */ }
+          }
+        });
+      })();
+    </script>
+
+  </body>
 </html>
