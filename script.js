@@ -1,10 +1,10 @@
-const nome = document.getElementById("nome");
-const password = document.getElementById("password");
-const submit = document.getElementById("submit"); 
+const username = document.getElementById("username");   //l'input per l'username deve avere l'id "username"
+const password = document.getElementById("password");   //l'input per la password deve avere l'id "password"
+const submit = document.getElementById("submit");       //il pulsante submit deve avere l'id submit
 
 try{
     const formData = new FormData();
-    formData.append("nome", nome);
+    formData.append("username", username);
     formData.append("password", password);
 
     const response = await fetch('login.php', {          // da cambiare il nome del file php probabilmente 
