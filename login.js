@@ -1,72 +1,65 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ─── ANNO FOOTER ───
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ─── GESTIONE ERRORI DA URL (PHP redirect con ?error=...) ───
-  const urlParams = new URLSearchParams(window.location.search);
-  const errorParam = urlParams.get("error");
-  if (errorParam) {
-    const messages = {
-      invalid: "Credenziali non valide.",
-      missing: "Inserisci email e password.",
-      blocked: "Account bloccato. Contatta l'amministratore.",
-    };
-    showFormAlert(messages[errorParam] || "Errore sconosciuto.");
-    if (window.history.replaceState) {
-      window.history.replaceState({}, document.title, window.location.pathname);
+    // ─── ERRORI DA URL ───
+    const urlParams = new URLSearchParams(window.location.search);
+    const errorParam = urlParams.get("error");
+    if (errorParam) {
+        const messages = {
+            invalid: "Credenziali non valide.",
+            empty:   "Inserisci username e password.",
+            db:      "Errore di connessione al database.",
+            blocked: "Account bloccato. Contatta l'amministratore.",
+        };
+        showFormAlert(messages[errorParam] || "Errore sconosciuto.");
+        if (window.history.replaceState) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
     }
-  }
 
-  // ─── TOGGLE VISIBILITÀ PASSWORD ───
-  const toggleBtn     = document.getElementById("togglePwd");
-  const passwordInput = document.getElementById("password");
+    // ─── TOGGLE PASSWORD ───
+    const toggleBtn    = document.getElementById("togglePwd");
+    const passwordInput = document.getElementById("password");
 
-  if (toggleBtn && passwordInput) {
-    toggleBtn.addEventListener("click", function () {
-      const isHidden = passwordInput.type === "password";
-      passwordInput.type = isHidden ? "text" : "password";
-      toggleBtn.innerHTML = isHidden ? "&#128064;" : "&#128065;";
-      toggleBtn.setAttribute(
-        "aria-label",
-        isHidden ? "Nascondi password" : "Mostra password"
-      );
+    if (toggleBtn && passwordInput) {
+        toggleBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const isHidden = passwordInput.type === "password";
+            passwordInput.type = isHidden ? "text" : "password";
+            toggleBtn.innerHTML = isHidden ? "👀" : "👁";
+            toggleBtn.setAttribute(
+                "aria-label",
+                isHidden ? "Nascondi password" : "Mostra password"
+            );
+        });
+    }
+
+    // ─── RIPRISTINO DATI DA LOCALSTORAGE ───
+    const usernameInput    = document.getElementById("username");   // ✅ ID corretto
+    const rememberCheckbox = document.querySelector('input[name="remember"]');
+
+    const savedUsername = localStorage.getItem("falianz_email");
+    if (savedUsername) {
+        usernameInput.value    = savedUsername;
+        rememberCheckbox.checked = true;
+        // ⚠️ Non salvare la password in localStorage!
+    }
+
+    // ─── GESTIONE SUBMIT ───
+    const form = document.querySelector(".login__form");
+
+    form.addEventListener("submit", function () {
+        const remember = rememberCheckbox.checked;
+        if (remember) {
+            localStorage.setItem("falianz_email", usernameInput.value.trim());
+        } else {
+            localStorage.removeItem("falianz_email");
+        }
+
+        const submitBtn     = form.querySelector(".login__submit");
+        submitBtn.disabled    = true;
+        submitBtn.textContent = "Accesso in corso...";
     });
-  }
-
-  // ─── RIPRISTINO DATI DA LOCALSTORAGE ───
-  const emailInput       = document.getElementById("email");
-  const rememberCheckbox = document.querySelector('input[name="remember"]');
-  const savedEmail       = localStorage.getItem("falianz_email");
-  const savedPassword    = localStorage.getItem("falianz_password");
-
-  if (savedEmail) {
-    emailInput.value         = savedEmail;
-    rememberCheckbox.checked = true;
-    if (savedPassword) {
-      passwordInput.value = savedPassword;
-    }
-  }
-
-  // ─── GESTIONE FORM LOGIN ───
-  const form = document.querySelector(".login__form");
-
-  form.addEventListener("submit", function (event)  {
-    event.preventDefault();
-
-    const email    = emailInput.value.trim();
-    const password = passwordInput.value;
-    const remember = rememberCheckbox.checked;
-
-    // ── Stato pulsante durante il caricamento ──
-    const submitBtn = form.querySelector(".login__submit");
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled    = true;
-    submitBtn.textContent = "Accesso in corso...";
-
-   
-});
 });
