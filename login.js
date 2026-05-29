@@ -1,33 +1,171 @@
-const username = document.getElementById("username");   //l'input per l'username deve avere l'id "username"
-const password = document.getElementById("password");   //l'input per la password deve avere l'id "password"
-const checkbox = document.getElementById("checkbox")    //la chekbox per salvare i dati nel local storeage deve avere come id "checkbox"
-const submit = document.getElementById("submit");       //il pulsante submit deve avere l'id submit
+document.addEventListener("DOMContentLoaded", function () {
 
-try{
-    const formData = new FormData();
-    formData.append("username", username);
-    formData.append("password", password);
+  // ─── ANNO FOOTER ───
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-    const response = await fetch('login.php', {          // da cambiare il nome del file php probabilmente 
-        method: "post",                                  // (login.php è un file inventato)
-        body: formData
+  // ─── TOGGLE VISIBILITÀ PASSWORD ───
+  const toggleBtn     = document.getElementById("togglePwd");
+  const passwordInput = document.getElementById("password");
+
+  if (toggleBtn && passwordInput) {
+    toggleBtn.addEventListener("click", function () {
+      const isHidden = passwordInput.type === "password";
+      passwordInput.type = isHidden ? "text" : "password";
+      toggleBtn.innerHTML = isHidden ? "&#128064;" : "&#128065;";
+      toggleBtn.setAttribute(
+        "aria-label",
+        isHidden ? "Nascondi password" : "Mostra password"
+      );
     });
+  }
 
-    const dati = await response.json();
+  // ─── RIPRISTINO EMAIL DA LOCALSTORAGE ───
+  const emailInput       = document.getElementById("email");
+  const rememberCheckbox = document.querySelector('input[name="remember"]');
+  const savedEmail       = localStorage.getItem("falianz_email");
 
-    if (data.success) {
-            showMessage(data.message, 'success');
-            
-            // Salva token/sessione 
-            if (data.username) {
-                localStorage.setItem('username', data.username);
-            }
-            
-           
+  if (savedEmail) {
+    emailInput.value         = savedEmail;
+    rememberCheckbox.checked = true;
+  }
 
-    }else{
-        allert("Errore! Verifica che i dati siano inseriti correttamente");
+  // ─── GESTIONE FORM LOGIN ───
+  const form = document.querySelector(".login__form");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const email    = emailInput.value.trim();
+    const password = passwordInput.value;
+    const remember = rememberCheckbox.checked;
+
+    // ── Pulisci errori precedenti ──
+    clearError("email");
+    clearError("password");
+
+    // ── Validazione ──
+    let valid = true;
+
+    if (!validateEmail(email)) {
+      showError("email", "Inserisci un indirizzo email valido.");
+      valid = false;
     }
-}catch (err){
-    allert("Errore di connessione");
-}
+
+    if (password.length < 6) {
+      showError("password", "La password deve contenere almeno 6 caratteri.");
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // ── Stato pulsante durante il caricamento ──
+    const submitBtn = form.querySelector(".login__submit");
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled    = true;
+    submitBtn.textContent = "Accesso in corso...";
+
+    // ── Invio dati a login.php ──
+    const formData = new FormData();
+    formData.append("email",    email);
+    formData.append("password", password);
+    formData.append("remember", remember ? "1" : "0");
+
+    fetch("login.php", {
+      method: "POST",
+      body:   formData,
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Errore del server: " + response.status);
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.status === "success") {
+
+          // ✅ SALVA/RIMUOVI EMAIL SOLO SE LOGIN RIUSCITO
+          if (remember) {
+            localStorage.setItem("falianz_email", email);
+          } else {
+            localStorage.removeItem("falianz_email");
+          }
+
+          // Reindirizza
+          window.location.href = data.redirect || "dashboard.php";
+
+        } else {
+          // Login fallito
+          showFormAlert(data.message || "Credenziali non valide. Riprova.");
+          submitBtn.disabled    = false;
+          submitBtn.textContent = originalText;
+        }
+      })
+      .catch(function (error) {
+        console.error("Errore:", error);
+        showFormAlert("Si è verificato un errore. Riprova più tardi.");
+        submitBtn.disabled    = false;
+        submitBtn.textContent = originalText;
+      });
+  });
+
+  // ─── UTILITY: validazione email ───
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  // ─── UTILITY: mostra errore sotto il campo ───
+  function showError(fieldId, message) {
+    const field  = document.getElementById(fieldId);
+    const group  = field.closest(".form-group");
+    
+    // Rimuovi errore esistente
+    const existing = group.querySelector(".form-error");
+    if (existing) existing.remove();
+    
+    // Crea nuovo errore
+    const error = document.createElement("span");
+    error.className   = "form-error";
+    error.textContent = message;
+    
+    // Inserisci dopo il wrapper o dopo l'input
+    const wrapper = field.closest(".form-input-wrap");
+    if (wrapper) {
+      wrapper.insertAdjacentElement("afterend", error);
+    } else {
+      field.insertAdjacentElement("afterend", error);
+    }
+    
+    field.classList.add("form-input--error");
+  }
+
+  // ─── UTILITY: rimuove errore dal campo ───
+  function clearError(fieldId) {
+    const field = document.getElementById(fieldId);
+    const group = field.closest(".form-group");
+    const existingError = group ? group.querySelector(".form-error") : null;
+    if (existingError) existingError.remove();
+    field.classList.remove("form-input--error");
+  }
+
+  // ─── UTILITY: alert generale sopra il bottone ───
+  function showFormAlert(message) {
+    const existing = form.querySelector(".form-alert");
+    if (existing) existing.remove();
+
+    const alert = document.createElement("div");
+    alert.className   = "form-alert";
+    alert.textContent = message;
+
+    const submitBtn = form.querySelector(".login__submit");
+    form.insertBefore(alert, submitBtn);
+
+    setTimeout(function () {
+      if (alert && alert.parentNode) alert.remove();
+    }, 5000);
+  }
+
+});
