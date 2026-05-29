@@ -7,13 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="login.css" />
-    <title>Accedi — Falianz Theory</title>
+    <title>Registrati — Falianz Theory</title>
   </head>
   <body>
 
-
-
-    <!-- ─── LOGIN SECTION ─── -->
     <main class="login">
 
       <!-- Left panel: image + tagline -->
@@ -25,9 +22,9 @@
         />
         <div class="login__bg-overlay"></div>
         <div class="login__panel-tagline">
-          <span class="label">Il tuo percorso</span>
-          <h2>Allena il tuo<br /><span class="text-accent">corpo,</span><br />libera la mente</h2>
-          <p>Accedi per gestire il tuo abbonamento, prenotare le classi e monitorare i tuoi progressi.</p>
+          <span class="label">Inizia il tuo percorso</span>
+          <h2>Trasforma il tuo<br /><span class="text-accent">corpo,</span><br />raggiungi i tuoi obiettivi</h2>
+          <p>Registrati per accedere a tutti i servizi della palestra, gestire il tuo abbonamento e prenotare le classi.</p>
         </div>
       </div>
 
@@ -41,11 +38,38 @@
             <span class="login__brand-text">FALIANZ<em>THEORY</em></span>
           </div>
 
-          <h1 class="login__heading">Bentornato</h1>
-          <p class="login__subheading">Inserisci le tue credenziali per accedere all'area riservata.</p>
+          <h1 class="login__heading">Crea il tuo account</h1>
+          <p class="login__subheading">Compila i campi sottostanti per registrarti alla palestra.</p>
 
-                 <!-- Form -->
-          <form class="login__form" action="login.php" method="post">
+          <!-- Form -->
+          <form class="login__form" action="register.php" method="post">
+
+            <div class="form-row-duo">
+              <div class="form-group">
+                <label class="form-label" for="first_name">Nome</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  placeholder="Mario"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last_name">Cognome</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Rossi"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+            </div>
 
             <div class="form-group">
               <label class="form-label" for="username">Nome utente</label>
@@ -54,8 +78,21 @@
                 type="text"
                 id="username"
                 name="username"
-                placeholder="nomeutente"
+                placeholder="mario.rossi"
                 autocomplete="username"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="mario.rossi@email.it"
+                autocomplete="email"
                 required
               />
             </div>
@@ -68,8 +105,8 @@
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="••••••••"
-                  autocomplete="current-password"
+                  placeholder="Scegli una password"
+                  autocomplete="new-password"
                   required
                 />
                 <button
@@ -77,22 +114,14 @@
                   class="form-input-wrap__toggle"
                   aria-label="Mostra/Nascondi password"
                   id="togglePwd"
-
                 >
                   &#128065;
                 </button>
               </div>
             </div>
 
-            <div class="form-row">
-              <label class="form-checkbox">
-                <input type="checkbox" name="remember" />
-                Ricordami
-              </label>
-            </div>
-
             <button type="submit" class="btn btn--primary login__submit">
-              Accedi
+              Registrati
             </button>
 
           </form>
@@ -102,8 +131,8 @@
           </div>
 
           <p class="login__register">
-            Non hai ancora un account?&nbsp;
-            <a href="register.html">Registrati ora</a>
+            Hai già un account?&nbsp;
+            <a href="login.html">Accedi ora</a>
           </p>
 
         </div>
@@ -134,7 +163,7 @@
       </div>
     </footer>
 
-    <script src="login.js"></script>
+    <script src="register.js"></script>
 
   </body>
 </html>
