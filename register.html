@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Registrati — Falianz Theory</title>
+  </head>
+  <body>
+
+    <main class="login">
+
+      <!-- Left panel: image + tagline -->
+      <div class="login__panel-left">
+        <img
+          src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          alt="Palestra Falianz Theory"
+          class="login__bg-img"
+        />
+        <div class="login__bg-overlay"></div>
+        <div class="login__panel-tagline">
+          <span class="label">Inizia il tuo percorso</span>
+          <h2>Trasforma il tuo<br /><span class="text-accent">corpo,</span><br />raggiungi i tuoi obiettivi</h2>
+          <p>Registrati per accedere a tutti i servizi della palestra, gestire il tuo abbonamento e prenotare le classi.</p>
+        </div>
+      </div>
+
+      <!-- Right panel: form -->
+      <div class="login__panel-right">
+        <div class="login__card">
+
+          <!-- Logo -->
+          <div class="login__brand">
+            <span class="login__brand-mark">F</span>
+            <span class="login__brand-text">FALIANZ<em>THEORY</em></span>
+          </div>
+
+          <h1 class="login__heading">Crea il tuo account</h1>
+          <p class="login__subheading">Compila i campi sottostanti per registrarti alla palestra.</p>
+
+          <!-- Form -->
+          <form class="login__form" action="register.php" method="post">
+
+            <div class="form-row-duo">
+              <div class="form-group">
+                <label class="form-label" for="first_name">Nome</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  placeholder="Mario"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last_name">Cognome</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Rossi"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="username">Nome utente</label>
+              <input
+                class="form-input"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="mario.rossi"
+                autocomplete="username"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="mario.rossi@email.it"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="password">Password</label>
+              <div class="form-input-wrap">
+                <input
+                  class="form-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Scegli una password"
+                  autocomplete="new-password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="form-input-wrap__toggle"
+                  aria-label="Mostra/Nascondi password"
+                  id="togglePwd"
+                >
+                  &#128065;
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary login__submit">
+              Registrati
+            </button>
+
+          </form>
+
+          <div class="login__divider">
+            <span>oppure</span>
+          </div>
+
+          <p class="login__register">
+            Hai già un account?&nbsp;
+            <a href="login.html">Accedi ora</a>
+          </p>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="nav__logo-mark">F</span>
+            <span class="nav__logo-text">FALIANZ<em>THEORY</em></span>
+          </div>
+          <p>Via della Natura 67, Milano<br />Aperto 6:00 am &mdash; 1:00 am ogni giorno</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Legale</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Termini di servizio</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year">2026</span> Falianz Theory. Tutti i diritti riservati.</p>
+      </div>
+    </footer>
+
+    <script src="register.js"></script>
+
+  </body>
+</html>
