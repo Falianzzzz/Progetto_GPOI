@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: login.html');
-    exit;
-}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
 
 $host = 'localhost';
 $db   = 'palestra';
 $user = 'root';
 $pass = '';
+
 
 $mysqli = new mysqli($host,$user, $pass, $db);
 
@@ -42,16 +42,18 @@ if ($stmt->num_rows === 0) {
 $stmt->bind_result($pass_db);
 $stmt->fetch();
 
-if (password_verify($password, $pass_db)) {
+if ($password === $pass_db) {
     $_SESSION['user'] = $username;
     $_SESSION['logged_in'] = true;
-    $stmt->close();
-    $mysqli->close();
     header('Location: index.php');
     exit;
 } else {
     $stmt->close();
     $mysqli->close();
     header('Location: login.html?error=invalid');
+    exit;
+}
+} else {
+    header('Location: login.html');
     exit;
 }

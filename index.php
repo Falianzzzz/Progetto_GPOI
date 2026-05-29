@@ -6,5 +6,5 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
-header('Location: dashboard.html?user=' . urlencode($_SESSION['user']));
+header('Location: index.html?user=' . urlencode($_SESSION['user']));
 exit;
