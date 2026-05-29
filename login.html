@@ -153,24 +153,7 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        // Year
-        var yearEl = document.getElementById('year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-        // Toggle password visibility
-        var toggleBtn = document.getElementById('togglePwd');
-        var pwdInput  = document.getElementById('password');
-        if (toggleBtn && pwdInput) {
-          toggleBtn.addEventListener('click', function () {
-            var isHidden = pwdInput.type === 'password';
-            pwdInput.type = isHidden ? 'text' : 'password';
-            toggleBtn.setAttribute('aria-pressed', String(isHidden));
-          });
-        }
-      })();
-    </script>
+    <script src="login.js"></script>
 
   </body>
 </html>
