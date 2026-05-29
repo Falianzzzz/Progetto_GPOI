@@ -69,11 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ─── RIPRISTINO DATI DA LOCALSTORAGE (solo username per sicurezza) ───
+  // ─── RIPRISTINO DATI DA LOCALSTORAGE  ───
   const savedUsername = localStorage.getItem("falianz_username");
-
+  const savedPassword = localStorage.getItem("falianz_password"); 
   if (savedUsername && usernameInput) {
     usernameInput.value = savedUsername;
+    if (savedPassword && passwordInput) passwordInput.value = savedPassword;
     if (rememberCheckbox) rememberCheckbox.checked = true;
   }
 
@@ -91,11 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // ── Salvataggio in localStorage (SOLO username, mai password) ──
+      // ── Salvataggio in localStorage ──
       if (remember) {
         localStorage.setItem("falianz_username", username);
+        localStorage.setItem("falianz_password", password);
       } else {
         localStorage.removeItem("falianz_username");
+        localStorage.removeItem("falianz_password");
       }
 
       // ── Stato pulsante durante il caricamento ──
