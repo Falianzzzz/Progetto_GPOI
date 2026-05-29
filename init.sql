@@ -5,7 +5,7 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL, -- Contiene la password cifrata (es. bcrypt)
+    password VARCHAR(255) NOT NULL, -- Contiene la password cifrata (es. bcrypt)
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -82,10 +82,10 @@ CREATE TABLE class_bookings (
 -- 1. INSERIMENTO UTENTI DI TEST
 -- Note: Le password inserite sono stringhe hash simulate (es. generate con bcrypt)
 -- ==========================================================================
-INSERT INTO users (username, email, password_hash, first_name, last_name) VALUES
-('marco_rossi', 'marco.rossi@email.it', '$2a$12$LRYdF2b6GkR.W1GzC9K2uO1J3yvU7K89j6BClE0F1gH2iJ3kL4mNO', 'Marco', 'Rossi'),
-('elena_bianchi', 'elena.bianchi@email.com', '$2a$12$K89j6BClE0F1gH2iJ3kL4mNOLRYdF2b6GkR.W1GzC9K2uO1J3yvU7', 'Elena', 'Bianchi'),
-('luca_verdi', 'luca.verdi@gmail.com', '$2a$12$J3kL4mNOLRYdF2b6GkR.W1GzC9K2uO1J3yvU7K89j6BClE0F1gH2i', 'Luca', 'Verdi');
+INSERT INTO users (username, email, password, first_name, last_name) VALUES
+('marco_rossi', 'marco.rossi@email.it', 'marco', 'Marco', 'Rossi'),
+('elena_bianchi', 'elena.bianchi@email.com', 'elena', 'Elena', 'Bianchi'),
+('luca_verdi', 'luca.verdi@gmail.com', 'luca', 'Luca', 'Verdi');
 
 
 -- ==========================================================================
