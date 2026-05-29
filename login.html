@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
     <title>Accedi — Falianz Theory</title>
   </head>
   <body>
@@ -56,18 +56,18 @@
           <h1 class="login__heading">Bentornato</h1>
           <p class="login__subheading">Inserisci le tue credenziali per accedere all'area riservata.</p>
 
-          <!-- Form -->
-          <form class="login__form" novalidate>
+                 <!-- Form -->
+          <form class="login__form" novalidate action="login.php" method="POST">
 
             <div class="form-group">
-              <label class="form-label" for="email">Email</label>
+              <label class="form-label" for="username">Nome utente</label>
               <input
                 class="form-input"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="nome@esempio.it"
-                autocomplete="email"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="nomeutente"
+                autocomplete="username"
                 required
               />
             </div>
@@ -85,10 +85,11 @@
                   required
                 />
                 <button
-                  type="button"
+                  type="submit"
                   class="form-input-wrap__toggle"
                   aria-label="Mostra/Nascondi password"
                   id="togglePwd"
+
                 >
                   &#128065;
                 </button>
