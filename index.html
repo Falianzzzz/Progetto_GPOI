@@ -121,10 +121,11 @@
             <li class="muted"><span class="cross">&#10005;</span> Sessione PT inclusa</li>
             <li class="muted"><span class="cross">&#10005;</span> Programma nutrizionale</li>
           </ul>
-          <a href="#contact" class="btn btn--outline card__btn">Abbonati ora</a>
+          <a href="#contact" class="btn btn--outline card__btn" data-plan-id="4">Abbonati ora</a>
+          <p class="card__subscribed" style="display:none; color:#2e7d32; text-align:center; margin-top:12px; font-weight:600;">✔ Abbonamento attivo</p>
         </div>
 
-       
+        
         <div class="card card--featured">
           <div class="card__badge card__badge--green">Più scelto</div>
           <div class="card__period">6 Mesi</div>
@@ -143,7 +144,8 @@
             <li><span class="check">&#10003;</span> 1 sessione PT al mese</li>
             <li class="muted"><span class="cross">&#10005;</span> Programma nutrizionale</li>
           </ul>
-          <a href="#contact" class="btn btn--primary card__btn">Abbonati ora</a>
+          <a href="#contact" class="btn btn--primary card__btn" data-plan-id="5">Abbonati ora</a>
+          <p class="card__subscribed" style="display:none; color:#2e7d32; text-align:center; margin-top:12px; font-weight:600;">✔ Abbonamento attivo</p>
           <div class="card__glow"></div>
         </div>
 
@@ -166,7 +168,8 @@
             <li><span class="check">&#10003;</span> 2 sessioni PT al mese</li>
             <li><span class="check">&#10003;</span> Programma nutrizionale</li>
           </ul>
-          <a href="#contact" class="btn btn--outline card__btn">Abbonati ora</a>
+          <a href="#contact" class="btn btn--outline card__btn" data-plan-id="6">Abbonati ora</a>
+          <p class="card__subscribed" style="display:none; color:#2e7d32; text-align:center; margin-top:12px; font-weight:600;">✔ Abbonamento attivo</p>
         </div>
 
       </div>
@@ -238,13 +241,10 @@
     </footer>
 
     <script>
-   
       (function () {
-        
         var yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-       
         document.addEventListener('click', function (ev) {
           var a = ev.target.closest && ev.target.closest('a[href^="#"]');
           if (!a) return;
@@ -254,10 +254,66 @@
           if (target) {
             ev.preventDefault();
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
-            try { history.replaceState(null, '', href); } catch (e) { /* noop */ }
+            try { history.replaceState(null, '', href); } catch (e) {}
           }
         });
+
+        fetch('check_subscription.php')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            var btns = document.querySelectorAll('.card__btn');
+            var msgs = document.querySelectorAll('.card__subscribed');
+
+            if (data.has_subscription) {
+              for (var i = 0; i < btns.length; i++) btns[i].style.display = 'none';
+              for (var i = 0; i < msgs.length; i++) msgs[i].style.display = 'block';
+            } else {
+              for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener('click', function (e) {
+                  e.preventDefault();
+                  var planId = this.getAttribute('data-plan-id');
+                  var formData = new FormData();
+                  formData.append('plan_id', planId);
+
+                  var btn = this;
+                  var origText = btn.textContent;
+                  btn.textContent = 'Attivazione...';
+                  btn.disabled = true;
+
+                  fetch('subscribe.php', {
+                    method: 'POST',
+                    body: formData
+                  })
+                    .then(function (r) { return r.json(); })
+                    .then(function (res) {
+                      if (res.success) {
+                        btn.textContent = '✔ Attivato';
+                        btn.style.backgroundColor = '#2e7d32';
+                        btn.style.borderColor = '#2e7d32';
+                        btn.style.color = '#fff';	
+                        var msg = btn.nextElementSibling;
+                        if (msg && msg.classList.contains('card__subscribed')) {
+                          msg.style.display = 'block';
+                        }
+                        for (var j = 0; j < btns.length; j++) {
+                          if (btns[j] !== btn) btns[j].style.display = 'none';
+                        }
+                      } else {
+                        alert(res.error || 'Errore');
+                        btn.textContent = origText;
+                        btn.disabled = false;
+                      }
+                    })
+                    .catch(function () {
+                      alert('Errore di connessione');
+                      btn.textContent = origText;
+                      btn.disabled = false;
+                    });
+                });
+              }
+            }
+          })
+          .catch(function () {});
       })();
     </script>
 
