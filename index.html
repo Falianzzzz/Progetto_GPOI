@@ -16,18 +16,19 @@
         position: fixed;
         left: 16px;
         bottom: 16px;
-        width: 44px;
-        height: 44px;
+        width: 56px;
+        height: 56px;
         border-radius: 50%;
-        background: #2e7d32;
-        color: #fff;
+        background: transparent;
+        color: inherit;
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         font-size: 18px;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.18);
         z-index: 1200;
+        border: none;
       }
       .user-fab:active,
       .user-fab:focus {
@@ -35,7 +36,14 @@
         transform: translateY(1px);
       }
       @media (max-width: 480px) {
-        .user-fab { left: 12px; bottom: 12px; width:40px; height:40px; font-size:16px; }
+        .user-fab { left: 12px; bottom: 12px; width:48px; height:48px; font-size:16px; }
+      }
+      .user-fab__img {
+        width: 84%;
+        height: 84%;
+        display: block;
+        object-fit: contain;
+        border-radius: 50%;
       }
     </style>
 </head>
@@ -267,7 +275,9 @@
       </div>
     </footer>
 
-    <a href="form.html" class="user-fab" title="Il mio account" aria-label="Il mio account">👤</a>
+    <a href="form.html" class="user-fab" title="Il mio account" aria-label="Il mio account">
+      <img src="assets/icona-del-tipo-di-vettore-dell-uomo-muscolare_854558-2954.avif" alt="Il mio account" class="user-fab__img" />
+    </a>
 
     <script>
       (function () {
