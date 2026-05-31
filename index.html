@@ -11,6 +11,33 @@
     <meta property="og:image" content="https://bolt.new/static/og_default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+    <style>
+      .user-fab {
+        position: fixed;
+        left: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #2e7d32;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 18px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        z-index: 1200;
+      }
+      .user-fab:active,
+      .user-fab:focus {
+        outline: none;
+        transform: translateY(1px);
+      }
+      @media (max-width: 480px) {
+        .user-fab { left: 12px; bottom: 12px; width:40px; height:40px; font-size:16px; }
+      }
+    </style>
 </head>
   <body>
 
@@ -239,6 +266,8 @@
         
       </div>
     </footer>
+
+    <a href="form.html" class="user-fab" title="Il mio account" aria-label="Il mio account">👤</a>
 
     <script>
       (function () {
