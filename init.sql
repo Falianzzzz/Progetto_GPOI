@@ -85,7 +85,8 @@ CREATE TABLE class_bookings (
 INSERT INTO users (username, email, password, first_name, last_name) VALUES
 ('marco_rossi', 'marco.rossi@email.it', 'marco', 'Marco', 'Rossi'),
 ('elena_bianchi', 'elena.bianchi@email.com', 'elena', 'Elena', 'Bianchi'),
-('luca_verdi', 'luca.verdi@gmail.com', 'luca', 'Luca', 'Verdi');
+('luca_verdi', 'luca.verdi@gmail.com', 'luca', 'Luca', 'Verdi'),
+('admin', 'admin@falianztheory.it', 'admin', 'Amministratore', 'Sistema');
 
 
 -- ==========================================================================

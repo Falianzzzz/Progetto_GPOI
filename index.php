@@ -6,6 +6,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
-$user = htmlspecialchars($_SESSION['user'] ?? '', ENT_QUOTES, 'UTF-8');
+// Servi il contenuto di index.html direttamente (non redirect)
 readfile('index.html');
-
+exit;

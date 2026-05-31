@@ -45,7 +45,8 @@ $stmt->fetch();
 if ($password === $pass_db) {
     $_SESSION['user'] = $username;
     $_SESSION['logged_in'] = true;
-    header('Location: index.php');
+    $redirect = ($username === 'admin') ? 'admin.php' : 'index.php';
+    header('Location: ' . $redirect);
     exit;
 } else {
     $stmt->close();
