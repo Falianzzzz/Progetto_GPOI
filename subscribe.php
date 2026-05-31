@@ -20,6 +20,7 @@ if ($mysqli->connect_error) {
     exit;
 }
 
+
 $username = $_SESSION['user'];
 $plan_id = isset($_POST['plan_id']) ? intval($_POST['plan_id']) : 0;
 

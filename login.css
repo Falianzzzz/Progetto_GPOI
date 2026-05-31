@@ -659,3 +659,98 @@ body {
     gap: 24px;
   }
 }
+
+/* ── THEME TOGGLE ────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--neutral-700);
+  border-radius: 50%;
+  background: var(--neutral-800);
+  color: var(--neutral-300);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--green-400);
+  color: var(--green-300);
+  transform: translateY(-2px);
+}
+.theme-toggle__icon {
+  width: 20px;
+  height: 20px;
+}
+.theme-toggle__icon--sun {
+  display: none;
+}
+.theme-toggle__icon--moon {
+  display: block;
+}
+[data-theme="light"] .theme-toggle__icon--sun {
+  display: block;
+}
+[data-theme="light"] .theme-toggle__icon--moon {
+  display: none;
+}
+
+/* ── LIGHT THEME ─────────────────────────────────────── */
+[data-theme="light"] {
+  --neutral-950: #f5f8f5;
+  --neutral-900: #eef3ef;
+  --neutral-800: #e8ede9;
+  --neutral-700: #cdd8cf;
+  --neutral-600: #a8b5ab;
+  --neutral-500: #7a8a7e;
+  --neutral-400: #5a6360;
+  --neutral-300: #3d4540;
+  --neutral-200: #2a302c;
+  --neutral-100: #1c211e;
+  --neutral-50:  #111513;
+
+  --green-950: #edf7ee;
+  --green-900: #d4ecd7;
+  --green-800: #a8d4af;
+  --green-700: #72b87c;
+  --green-600: #4e9e59;
+  --green-500: #3a8045;
+  --green-400: #2d6836;
+  --green-300: #22512a;
+  --green-200: #1a3d20;
+  --green-100: #0f2614;
+  --green-50:  #0a1a0e;
+}
+[data-theme="light"] body {
+  background-color: var(--neutral-950);
+  color: var(--neutral-100);
+}
+[data-theme="light"] .nav {
+  background: rgba(245, 248, 245, 0.95);
+  border-bottom-color: rgba(42, 48, 44, 0.1);
+}
+[data-theme="light"] .login__panel-left {
+  background-color: var(--green-950);
+}
+[data-theme="light"] .login__panel-right {
+  background-color: var(--neutral-900);
+}
+[data-theme="light"] .login__card {
+  background: transparent;
+}
+[data-theme="light"] .form-input {
+  color: var(--neutral-100);
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+[data-theme="light"] .footer {
+  background: var(--neutral-900);
+  border-top-color: var(--neutral-800);
+}
+[data-theme="light"] .theme-toggle {
+  background: var(--neutral-800);
+  border-color: var(--neutral-600);
+  color: var(--neutral-300);
+}

@@ -307,3 +307,38 @@
     text-align: left;
   }
 }
+
+/* ── LIGHT THEME ─────────────────────────────────────── */
+[data-theme="light"] .account-page {
+  background: radial-gradient(circle at top, rgba(74, 222, 128, 0.05), transparent 28%), linear-gradient(180deg, #f5f8f5 0%, #eef3ef 100%);
+}
+[data-theme="light"] .account-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .account-section {
+  background: rgba(245, 248, 245, 0.98);
+  border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .account-section__title {
+  border-bottom-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .form-field input {
+  background: rgba(0,0,0,0.03);
+  color: var(--text);
+  border-color: rgba(0,0,0,0.12);
+}
+[data-theme="light"] .form-field input:disabled {
+  background: rgba(0,0,0,0.04);
+  color: var(--text-2);
+}
+[data-theme="light"] .subscription-card {
+  background: linear-gradient(160deg, rgba(237, 247, 238, 0.98) 0%, rgba(224, 239, 227, 0.98) 100%);
+  border-color: rgba(74, 222, 128, 0.35);
+}
+[data-theme="light"] .subscription-card__features {
+  border-top-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .form-actions {
+  border-top-color: rgba(0,0,0,0.08);
+}

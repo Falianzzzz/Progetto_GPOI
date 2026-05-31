@@ -18,6 +18,7 @@ if ($mysqli->connect_error) {
     exit;
 }
 
+
 $username   = isset($_POST['username'])   ? trim($_POST['username'])   : '';
 $email      = isset($_POST['email'])      ? trim($_POST['email'])      : '';
 $password   = isset($_POST['password'])   ? $_POST['password']         : '';

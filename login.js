@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
-
   // ─── FUNZIONE HELPER PER MOSTRARE ALERT ───
   function showFormAlert(message) {
     // Rimuovi eventuali alert precedenti

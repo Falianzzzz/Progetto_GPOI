@@ -7,6 +7,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
+
 $host = 'localhost';
 $db   = 'palestra';
 $user = 'root';

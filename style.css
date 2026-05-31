@@ -748,3 +748,89 @@ a { text-decoration: none; color: inherit; }
   .hero__actions { flex-direction: column; }
   .cta-band__actions { flex-direction: column; align-items: center; }
 }
+
+/* ── THEME TOGGLE ────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-2px);
+}
+.theme-toggle__icon {
+  width: 20px;
+  height: 20px;
+}
+.theme-toggle__icon--sun {
+  display: none;
+}
+.theme-toggle__icon--moon {
+  display: block;
+}
+[data-theme="light"] .theme-toggle__icon--sun {
+  display: block;
+}
+[data-theme="light"] .theme-toggle__icon--moon {
+  display: none;
+}
+
+/* ── LIGHT THEME ─────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:           #f5f8f5;
+  --bg-2:         #eef3ef;
+  --bg-3:         #e8ede9;
+  --surface:      #ffffff;
+  --surface-2:    #f0f4f1;
+  --border:       rgba(0,0,0,0.1);
+  --text:         #1a1f1c;
+  --text-2:       #3d4540;
+  --text-3:       #7a8a7e;
+}
+[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+[data-theme="light"] .nav {
+  background: rgba(245, 248, 245, 0.85);
+  border-bottom-color: var(--border);
+}
+[data-theme="light"] .hero__overlay {
+  background:
+    linear-gradient(to right, rgba(245,248,245,0.92) 45%, rgba(245,248,245,0.3) 100%),
+    linear-gradient(to top, rgba(245,248,245,0.8) 0%, transparent 50%);
+}
+[data-theme="light"] .hero__stats {
+  background: rgba(238, 243, 239, 0.85);
+}
+[data-theme="light"] .btn--ghost {
+  background: rgba(0,0,0,0.05);
+  color: var(--text);
+}
+[data-theme="light"] .btn--ghost:hover {
+  background: rgba(0,0,0,0.1);
+}
+[data-theme="light"] .card__badge--neutral {
+  background: rgba(0,0,0,0.05);
+  color: var(--text-2);
+}
+[data-theme="light"] .card--featured {
+  background: linear-gradient(160deg, #edf7ee 0%, #e0efe3 100%);
+}
+[data-theme="light"] .pillar:hover {
+  border-color: rgba(74, 222, 128, 0.5);
+}
+[data-theme="light"] .gallery__caption {
+  background: linear-gradient(to top, rgba(245,248,245,0.92) 0%, transparent 100%);
+}

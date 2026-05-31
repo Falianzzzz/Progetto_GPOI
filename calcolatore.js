@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    
     var eta = parseInt(document.getElementById('eta').value, 10);
     var sesso = document.getElementById('sesso').value;
     var peso = parseFloat(document.getElementById('peso').value);

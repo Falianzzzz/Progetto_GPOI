@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
           'Content-Type': 'application/json'
         }
       });   
+      
 
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
