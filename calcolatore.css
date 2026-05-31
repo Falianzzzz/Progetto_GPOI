@@ -1,0 +1,236 @@
+.calc-main {
+  padding: 120px 24px 60px;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.calc-container {
+  width: 100%;
+  max-width: 780px;
+}
+
+.calc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  margin-bottom: 32px;
+}
+
+.calc-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.calc-desc {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.calc-form .form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.calc-form .form-row .form-group {
+  flex: 1;
+}
+
+.calc-form .form-group {
+  margin-bottom: 16px;
+}
+
+.calc-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-2);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.calc-form input,
+.calc-form select {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.calc-form input:focus,
+.calc-form select:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.calc-submit {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 1.05rem;
+  padding: 14px;
+}
+
+/* KPI cards */
+.result-kpi {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.kpi-card {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.2s var(--ease);
+}
+
+.kpi-card:hover {
+  transform: translateY(-4px);
+}
+
+.kpi-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.kpi-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--green);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  transition: all 0.6s var(--ease);
+}
+
+.kpi-unit {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+/* Macro section */
+.macro-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+}
+
+.macro-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.macro-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.macro-bar {
+  display: grid;
+  grid-template-columns: 120px 1fr 70px;
+  align-items: center;
+  gap: 16px;
+}
+
+.macro-bar__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.macro-track {
+  height: 10px;
+  background: var(--bg-2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.macro-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.8s var(--ease);
+}
+
+.macro-fill--pro { background: #4ade80; }
+.macro-fill--fat { background: #f59e0b; }
+.macro-fill--carbs { background: #60a5fa; }
+
+.macro-bar__val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: right;
+}
+
+/* Results container - hidden by default */
+.calc-results {
+  display: none;
+}
+
+.calc-results.visible {
+  display: block;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .calc-card {
+    padding: 28px 20px;
+  }
+
+  .calc-title {
+    font-size: 1.6rem;
+  }
+
+  .calc-form .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .result-kpi {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .kpi-value {
+    font-size: 2.4rem;
+  }
+
+  .macro-bar {
+    grid-template-columns: 90px 1fr 60px;
+    gap: 10px;
+  }
+
+  .macro-section {
+    padding: 24px 20px;
+  }
+}
